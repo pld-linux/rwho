@@ -19,26 +19,26 @@
 [ -f /etc/sysconfig/rwhod ] && . /etc/sysconfig/rwhod
 
 # Check that networking is up.
-if [ "${NETWORKING}" = "no" ]; then
-	echo "WARNING: Networking is down. Rwhod service can't be runed."
+if is_no "${NETWORKING}"; then
+	msg_Network_Down rwhod
 	exit 1
 fi
-
 
 # See how we were called.
 case "$1" in
   start)
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/rwhod ]; then
-		show Starting rwhod
+		msg_starting rwhod
 		daemon rwhod
 	else
-		echo "rwhod already is running"
+		msg_Already_Running rwhod
+		exit 1
 	fi
 	touch /var/lock/subsys/rwhod
 	;;
   stop)
-	show Stopping rwho services
+	msg_stopping rwho
 	killproc rwhod
 	rm -f /var/lock/subsys/rwhod
 	;;
@@ -50,7 +50,7 @@ case "$1" in
 	$0 start
 	;;
   *)
-	echo "Usage: $0 {start|stop|status|restart|reload}"
+	msg_Usage "$0 {start|stop|status|restart|reload}"
 	exit 1
 	;;
 esac
