@@ -1,0 +1,7 @@
+
+- added using CVS keywords in %changelog (for automating them).
+
+
+* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- start at RH spec file
+- major changes follow the PLD policy
