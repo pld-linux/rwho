@@ -63,10 +63,20 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
 rm -rf $RPM_BUILD_ROOT
 
 %post
-NAME=rwhod; DESC="rwhod server"; %chkconfig_add
+/sbin/chkconfig --add rwhod
+if [ -f /var/lock/subsys/rwhod ]; then
+	/etc/rc.d/init.d/rwhod restart 1>&2
+else
+	echo "Type \"/etc/rc.d/init.d/rwhod start\" to start rwhod server" 1>&2
+fi
 	
-%preun
-NAME=rwhod; %chkconfig_del
+%postun
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/rwhod ]; then
+		/etc/rc.d/init.d/rwhod stop 1>&2
+	fi
+	/sbin/chkconfig --del rwhod
+fi
 
 %files
 %defattr(644,root,root,755)
