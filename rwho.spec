@@ -1,5 +1,8 @@
-Summary:	Displays who is logged in to local network machines.
-Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej.
+Summary:	Displays who is logged in to local network machines
+Summary(de):	Anzeige von Login-Infos für alle Computer im LAN
+Summary(fr):	Affiche les informations de login pour toutes les machines du réseau local
+Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej
+Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.16
 Release:	3
@@ -19,8 +22,20 @@ The rwho command displays output similar to the output of the who
 command (it shows who is logged in) for all machines on the local
 network running the rwho daemon.
 
-Install the rwho command if you need to keep track of the users who
-are logged in to your local network.
+%description -l de
+Das rwho-Programm zeigt an, welche Anwender auf den Computern im LAN
+eingeloggt sind, die den rwho-Dämon ausführen. Sowohl der rwho-Client
+als auch der Dämon werden mitgeliefert.
+
+%description -l fr
+Le programme rwho affiche quels utilisateurs sont connectés sur les 
+machines du réseau local qui ont lancé le démon rwho. Le client et le
+démon rwho sont fournis dans ce package.
+
+%description -l tr
+rwho hizmetini sunan bir aðdaki tüm makinalarda çalýþan tüm kullanýcýlar bu
+komutla sýralanabilir. Bu paket hem istemci yazýlýmýný hem de sunucu
+yazýlýmýný içermektedir.
 
 %prep
 %setup -q -n netkit-rwho-%{version}
@@ -33,8 +48,8 @@ are logged in to your local network.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,8}}
-install -d $RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/spool/rwho}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,8}} \
+	$RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/spool/rwho}
 
 %{__make} install \
 	INSTALLROOT=$RPM_BUILD_ROOT \
