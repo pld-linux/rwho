@@ -13,6 +13,7 @@ Source2:	ruptime.tar.gz
 Source3:	rwhod.sysconfig
 Patch0:		netkit-rwho-misc.patch
 Requires:	/sbin/chkconfig
+Requires:	rc-scripts
 Buildroot:	/var/tmp/%{name}-%{version}-root
 
 %description
