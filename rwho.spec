@@ -68,8 +68,3 @@ fi
 %{_mandir}/man[18]/*
 
 %dir /var/spool/rwho
-
-%changelog
-* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-- start at RH spec file
-- major changes follow the PLD policy
