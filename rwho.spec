@@ -93,7 +93,7 @@ else
 	echo "Type \"/etc/rc.d/init.d/rwhod start\" to start rwhod server" 1>&2
 fi
 	
-%postun
+%preun
 if [ "$1" = "0" ]; then
 	if [ -f /var/lock/subsys/rwhod ]; then
 		/etc/rc.d/init.d/rwhod stop 1>&2
