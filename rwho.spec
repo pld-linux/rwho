@@ -1,17 +1,15 @@
 Summary:	Displays who is logged in to local network machines.
 Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej.
 Name:		rwho
-Version:	0.10
-Release:	25
+Version:	0.16
+Release:	3
 Copyright:	BSD
 Group:		Daemons
 Group(pl):	Serwery
-URL:		ftp://sunsite.unc.edu/pub/Linux/system/network/daemons
-Source0:	netkit-rwho-0.10.tar.gz
+Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-%{name}-%{version}.tar.gz
 Source1:	rwhod.init
-Source2:	ruptime.tar.gz
-Source3:	rwhod.sysconfig
-Patch0:		netkit-rwho-misc.patch
+Source2:	rwhod.sysconfig
+Patch0:		netkit-rwho-alpha.patch
 Requires:	/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,25 +23,25 @@ Install the rwho command if you need to keep track of the users who
 are logged in to your local network.
 
 %prep
-%setup -q -n netkit-rwho-0.10 -a 2
+%setup -q -n netkit-rwho-%{version}
 %patch -p1
 
 %build
-%{__make} OPT_FLAGS="$RPM_OPT_FLAGS -w"
-%{__make} OPT_FLAGS="$RPM_OPT_FLAGS -w" -C ruptime
+./configure
+%{__make} CFLAGS="$RPM_OPT_FLAGS -w"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_prefix}/{bin,sbin}
-install -d $RPM_BUILD_ROOT%{_mandir}/man{1,8}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,8}}
 install -d $RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/spool/rwho}
 
-%{__make} INSTALLROOT=$RPM_BUILD_ROOT install
-%{__make} INSTALLROOT=$RPM_BUILD_ROOT install -C ruptime
+%{__make} install \
+	INSTALLROOT=$RPM_BUILD_ROOT \
+	MANDIR=%{_mandir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/rwhod
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
 
 gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man{1,8}/*
 
