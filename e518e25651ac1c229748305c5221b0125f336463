@@ -1,0 +1,7 @@
+- release ++
+- updated init script to rc-scripts 0.2.0
+
+
+* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- start at RH spec file
+- major changes follow the PLD policy
