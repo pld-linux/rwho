@@ -5,7 +5,7 @@ Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
-Release:	0
+Release:	1
 Copyright:	BSD
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
