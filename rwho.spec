@@ -4,8 +4,8 @@ Name:		rwho
 Version:	0.16
 Release:	3
 Copyright:	BSD
-Group:		Daemons
-Group(pl):	Serwery
+Group:		Networking/Daemons
+Group(pl):	Sieciowe/Serwery
 Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-%{name}-%{version}.tar.gz
 Source1:	rwhod.init
 Source2:	rwhod.sysconfig
@@ -50,10 +50,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add rwhod
-
+if [ -f /var/lock/subsys/rwhod ]; then
+	/etc/rc.d/init.d/rwhod restart 1>&2
+else
+	echo "Type \"/etc/rc.d/init.d/rwhod start\" to start rwhod server" 1>&2
+fi
+	
 %postun
-if [ $1 = 0 ]; then
-    /sbin/chkconfig --del rwhod
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/rwhod ]; then
+		/etc/rc.d/init.d/rwhod stop 1>&2
+	fi
+	/sbin/chkconfig --del rwhod
 fi
 
 %files
