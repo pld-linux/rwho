@@ -18,8 +18,8 @@ Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
-Prereq:		/sbin/chkconfig
-Prereq:		rc-scripts
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,13 +66,14 @@ hem de sunucu yazýlýmýný içermektedir.
 
 %build
 ./configure
-%{__make} CFLAGS="%{rpmcflags} -w"
+
+%{__make} \
+	CFLAGS="%{rpmcflags} -w"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,8}} \
-	$RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/spool/rwho}
+	$RPM_BUILD_ROOT{/etc/{rc.d/init.d,sysconfig},/var/spool/rwho}
 
 %{__make} install \
 	INSTALLROOT=$RPM_BUILD_ROOT \
