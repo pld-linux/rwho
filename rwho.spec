@@ -7,7 +7,7 @@ Summary(pt_BR):	Mostra a informação do login para todas as máquinas na rede loca
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
-Release:	13
+Release:	14
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
