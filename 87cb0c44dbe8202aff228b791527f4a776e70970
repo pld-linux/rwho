@@ -1,0 +1,7 @@
+
+- small fixes in permissions for pam.d or init.d
+
+
+* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- start at RH spec file
+- major changes follow the PLD policy
