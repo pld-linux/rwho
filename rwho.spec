@@ -4,12 +4,12 @@ Summary(fr):	Affiche les informations de login pour toutes les machines du résea
 Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
-Version:	0.16
-Release:	3
+Version:	0.17
+Release:	0
 Copyright:	BSD
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
-Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
 Source1:	rwhod.init
 Source2:	rwhod.sysconfig
 Patch0:		netkit-rwho-alpha.patch
