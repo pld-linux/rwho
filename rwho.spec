@@ -2,7 +2,7 @@ Summary:	Displays who is logged in to local network machines.
 Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej.
 Name:		rwho
 Version:	0.10
-Release:	24
+Release:	25
 Copyright:	BSD
 Group:		Daemons
 Group(pl):	Serwery
