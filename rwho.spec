@@ -14,7 +14,7 @@ Source3:	rwhod.sysconfig
 Patch0:		netkit-rwho-misc.patch
 Requires:	/sbin/chkconfig
 Requires:	rc-scripts
-Buildroot:	/var/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The rwho command displays output similar to the output of the who
