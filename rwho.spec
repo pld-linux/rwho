@@ -10,8 +10,6 @@ Version:	0.17
 Release:	13
 License:	BSD
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
 Source1:	%{name}d.init
 Source2:	%{name}d.sysconfig
