@@ -1,0 +1,9 @@
+- changed all BuildRoot definitons
+- removed all applnkdir defs
+- changed some prereqs/requires
+- removed duplicate empty lines
+
+
+* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- start at RH spec file
+- major changes follow the PLD policy
