@@ -29,8 +29,8 @@ are logged in to your local network.
 %patch -p1
 
 %build
-make OPT_FLAGS="$RPM_OPT_FLAGS -w"
-make OPT_FLAGS="$RPM_OPT_FLAGS -w" -C ruptime
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS -w"
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS -w" -C ruptime
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -39,8 +39,8 @@ install -d $RPM_BUILD_ROOT%{_prefix}/{bin,sbin}
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,8}
 install -d $RPM_BUILD_ROOT/{etc/{rc.d/init.d,sysconfig},var/spool/rwho}
 
-make INSTALLROOT=$RPM_BUILD_ROOT install
-make INSTALLROOT=$RPM_BUILD_ROOT install -C ruptime
+%{__make} INSTALLROOT=$RPM_BUILD_ROOT install
+%{__make} INSTALLROOT=$RPM_BUILD_ROOT install -C ruptime
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/rwhod
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
