@@ -1,11 +1,13 @@
 Summary:	Displays who is logged in to local network machines
 Summary(de):	Anzeige von Login-Infos für alle Computer im LAN
+Summary(es):	Enseña la información del login para todas las máquinas en red local
 Summary(fr):	Affiche les informations de login pour toutes les machines du réseau local
 Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej
+Summary(pt_BR):	Mostra a informação do login para todas as máquinas na rede local
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
-Release:	1
+Release:	12
 License:	BSD
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
@@ -13,7 +15,10 @@ Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
 Source1:	%{name}d.init
 Source2:	%{name}d.sysconfig
-Patch0:		netkit-%{name}-alpha.patch
+Patch0:		%{name}-alpha.patch
+Patch1:		%{name}-bug22014.patch
+Patch2:		%{name}-fixbcast.patch
+Patch3:		%{name}-fixhostname.patch
 Requires:	/sbin/chkconfig
 Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,10 +33,20 @@ Das rwho-Programm zeigt an, welche Anwender auf den Computern im LAN
 eingeloggt sind, die den rwho-Dämon ausführen. Sowohl der rwho-Client
 als auch der Dämon werden mitgeliefert.
 
+%description -l es
+El programa rwho enseña cual de los usuarios están logados en las
+máquinas de la red local que estén ejecutando el servidor rwho. El
+cliente y el servidor se ofrecen en este paquete.
+
 %description -l fr
 Le programme rwho affiche quels utilisateurs sont connectés sur les
 machines du réseau local qui ont lancé le démon rwho. Le client et le
 démon rwho sont fournis dans ce package.
+
+%description -l pt_BR
+O programa rwho mostra quais usuários estão logados nas máquinas da
+rede local que estejam rodando o servidor rwho. O cliente e o servidor
+são fornecidos neste pacote.
 
 %description -l tr
 rwho hizmetini sunan bir aðdaki tüm makinalarda çalýþan tüm
@@ -40,7 +55,10 @@ hem de sunucu yazýlýmýný içermektedir.
 
 %prep
 %setup -q -n netkit-rwho-%{version}
-%patch -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 ./configure
