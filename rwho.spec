@@ -2,12 +2,12 @@ Summary:	Displays who is logged in to local network machines
 Summary(de):	Anzeige von Login-Infos für alle Computer im LAN
 Summary(es):	Enseña la información del login para todas las máquinas en red local
 Summary(fr):	Affiche les informations de login pour toutes les machines du réseau local
-Summary(pl):	Pokazuje kto jest zalogowany na mszynach w sieci lokalnej
+Summary(pl):	Pokazuje kto jest zalogowany na maszynach w sieci lokalnej
 Summary(pt_BR):	Mostra a informação do login para todas as máquinas na rede local
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
-Release:	12
+Release:	13
 License:	BSD
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
@@ -19,7 +19,7 @@ Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
-Requires:	/sbin/chkconfig
+Prereq:		/sbin/chkconfig
 Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,6 +42,11 @@ cliente y el servidor se ofrecen en este paquete.
 Le programme rwho affiche quels utilisateurs sont connectés sur les
 machines du réseau local qui ont lancé le démon rwho. Le client et le
 démon rwho sont fournis dans ce package.
+
+%description -l pl
+Polecenie rwho pokazuje, w sposób podobny do who, kto jest zalogowany
+w sieci lokalnej na wszystkich maszynach, na których dzia³± demon
+rwho.
 
 %description -l pt_BR
 O programa rwho mostra quais usuários estão logados nas máquinas da
