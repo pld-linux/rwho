@@ -1,0 +1,9 @@
+- updated to 0.16
+- removed old patches
+- removed separate ruptime
+- added alpha patch from rawhide
+
+
+* Mon Jun 07 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- start at RH spec file
+- major changes follow the PLD policy
