@@ -14,7 +14,7 @@ Source1:	rwhod.init
 Source2:	rwhod.sysconfig
 Patch0:		netkit-rwho-alpha.patch
 Requires:	/sbin/chkconfig
-Requires:	rc-scripts
+Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
