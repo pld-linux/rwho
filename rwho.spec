@@ -6,13 +6,14 @@ Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
 Release:	1
-Copyright:	BSD
+License:	BSD
 Group:		Networking/Daemons
+Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
-Source1:	rwhod.init
-Source2:	rwhod.sysconfig
-Patch0:		netkit-rwho-alpha.patch
+Source1:	%{name}d.init
+Source2:	%{name}d.sysconfig
+Patch0:		netkit-%{name}-alpha.patch
 Requires:	/sbin/chkconfig
 Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,14 +29,14 @@ eingeloggt sind, die den rwho-Dämon ausführen. Sowohl der rwho-Client
 als auch der Dämon werden mitgeliefert.
 
 %description -l fr
-Le programme rwho affiche quels utilisateurs sont connectés sur les 
+Le programme rwho affiche quels utilisateurs sont connectés sur les
 machines du réseau local qui ont lancé le démon rwho. Le client et le
 démon rwho sont fournis dans ce package.
 
 %description -l tr
-rwho hizmetini sunan bir aðdaki tüm makinalarda çalýþan tüm kullanýcýlar bu
-komutla sýralanabilir. Bu paket hem istemci yazýlýmýný hem de sunucu
-yazýlýmýný içermektedir.
+rwho hizmetini sunan bir aðdaki tüm makinalarda çalýþan tüm
+kullanýcýlar bu komutla sýralanabilir. Bu paket hem istemci yazýlýmýný
+hem de sunucu yazýlýmýný içermektedir.
 
 %prep
 %setup -q -n netkit-rwho-%{version}
@@ -43,7 +44,7 @@ yazýlýmýný içermektedir.
 
 %build
 ./configure
-%{__make} CFLAGS="$RPM_OPT_FLAGS -w"
+%{__make} CFLAGS="%{rpmcflags} -w"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -57,8 +58,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_sbindir},%{_mandir}/man{1,8}} \
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/rwhod
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
-
-gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man{1,8}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
