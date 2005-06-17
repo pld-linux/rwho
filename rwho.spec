@@ -18,6 +18,7 @@ Patch0:		%{name}-alpha.patch
 Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
+Patch4:		%{name}-debian-0.17-8.diff
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,7 +60,8 @@ hem de sunucu yazýlýmýný içermektedir.
 
 %prep
 %setup -q -n netkit-rwho-%{version}
-%patch0 -p1
+#%patch0 -p1
+%patch4 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
