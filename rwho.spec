@@ -19,7 +19,7 @@ Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
 Patch4:		%{name}-debian-0.17-8.diff
-PreReq:		rc-scripts
+Requires:	rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,7 +59,7 @@ kullanýcýlar bu komutla sýralanabilir. Bu paket hem istemci yazýlýmýný
 hem de sunucu yazýlýmýný içermektedir.
 
 %prep
-%setup -q -n netkit-rwho-%{version}
+%setup -q -n netkit-%{name}-%{version}
 #%patch0 -p1
 %patch4 -p1
 %patch1 -p1
@@ -106,7 +106,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/rwhod
-%attr(640,root,root) %config %verify(not size mtime md5) /etc/sysconfig/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/*
 
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
