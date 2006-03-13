@@ -19,8 +19,9 @@ Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
 Patch4:		%{name}-debian-0.17-8.diff
-Requires:	rc-scripts
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,17 +90,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add rwhod
-if [ -f /var/lock/subsys/rwhod ]; then
-	/etc/rc.d/init.d/rwhod restart 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/rwhod start\" to start rwhod server" 1>&2
-fi
+%service rwhod restart "rwhod server"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/rwhod ]; then
-		/etc/rc.d/init.d/rwhod stop 1>&2
-	fi
+	%service rwhod stop
 	/sbin/chkconfig --del rwhod
 fi
 
