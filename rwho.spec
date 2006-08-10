@@ -7,7 +7,7 @@ Summary(pt_BR):	Mostra a informação do login para todas as máquinas na rede loca
 Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
 Name:		rwho
 Version:	0.17
-Release:	15
+Release:	16
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
@@ -88,6 +88,10 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/rwhod
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%pre
+%groupadd -g 174 rwhod
+%useradd -u 174 -d /usr/share/empty -s /bin/false -c "rwhod User" -g rwhod rwhod
+
 %post
 /sbin/chkconfig --add rwhod
 %service rwhod restart "rwhod server"
@@ -96,6 +100,12 @@ rm -rf $RPM_BUILD_ROOT
 if [ "$1" = "0" ]; then
 	%service rwhod stop
 	/sbin/chkconfig --del rwhod
+fi
+
+%postun
+if [ "$1" = "0" ]; then
+	%userremove rwhod
+	%groupremove rwhod
 fi
 
 %files
