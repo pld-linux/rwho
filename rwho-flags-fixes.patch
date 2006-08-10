@@ -1,0 +1,36 @@
+diff -Nur netkit-rwho-0.17.orig/configure netkit-rwho-0.17.flags-fixes/configure
+--- netkit-rwho-0.17.orig/configure	2000-07-29 20:00:29.000000000 +0200
++++ netkit-rwho-0.17.flags-fixes/configure	2006-08-10 14:38:01.000000000 +0200
+@@ -119,7 +119,6 @@
+          $CC -O2 __conftest.c -o __conftest
+        ) >/dev/null 2>&1; then
+          echo 'yes'
+-         CFLAGS="$CFLAGS -O2"
+     else
+          echo 'no'
+          echo -n "Checking if $CC accepts -O... "
+@@ -127,7 +126,6 @@
+               $CC -O __conftest.c -o __conftest
+             ) >/dev/null 2>&1; then
+               echo 'yes'
+-              CFLAGS="$CFLAGS -O"
+          else
+               echo 'no'
+          fi
+@@ -139,16 +137,12 @@
+          $CC -g __conftest.c -o __conftest
+        ) >/dev/null 2>&1; then
+          echo 'yes'
+-         CFLAGS="$CFLAGS -g"
+     else
+          echo 'no'
+     fi
+ 
+ fi
+ 
+-LDFLAGS=
+-LIBS=
+-
+ rm -f __conftest*
+ 
+ ##################################################
