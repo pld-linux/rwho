@@ -19,6 +19,7 @@ Patch1:		%{name}-bug22014.patch
 Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
 Patch4:		%{name}-debian-0.17-8.diff
+Patch5:		%{name}-flags-fixes.patch
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -66,12 +67,16 @@ hem de sunucu yazýlýmýný içermektedir.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch5 -p1
 
 %build
-./configure
+CFLAGS="%{rpmcflags} -w"
+LDFLAGS="%{rpmldflags}"
+export CFLAGS LDFLAGS
+./configure \
+	--with-c-compiler="%{__cc}"
 
-%{__make} \
-	CFLAGS="%{rpmcflags} -w"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
