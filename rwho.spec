@@ -21,8 +21,16 @@ Patch3:		%{name}-fixhostname.patch
 Patch4:		%{name}-debian-0.17-8.diff
 Patch5:		%{name}-flags-fixes.patch
 BuildRequires:	rpmbuild(macros) >= 1.268
+Requires(pre):	/bin/id
+Requires(pre):	/usr/bin/getgid
+Requires(pre):	/usr/sbin/groupadd
+Requires(pre):	/usr/sbin/useradd
 Requires(post,preun):	/sbin/chkconfig
+Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
 Requires:	rc-scripts
+Provides:	group(rwhod)
+Provides:	user(rwhod)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
