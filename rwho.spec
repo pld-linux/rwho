@@ -1,10 +1,10 @@
 Summary:	Displays who is logged in to local network machines
-Summary(de.UTF-8):   Anzeige von Login-Infos für alle Computer im LAN
-Summary(es.UTF-8):   Enseña la información del login para todas las máquinas en red local
-Summary(fr.UTF-8):   Affiche les informations de login pour toutes les machines du réseau local
-Summary(pl.UTF-8):   Pokazuje kto jest zalogowany na maszynach w sieci lokalnej
-Summary(pt_BR.UTF-8):   Mostra a informação do login para todas as máquinas na rede local
-Summary(tr.UTF-8):   Ağ üzerindeki makinalardaki kullanıcıları sorgular
+Summary(de.UTF-8):	Anzeige von Login-Infos für alle Computer im LAN
+Summary(es.UTF-8):	Enseña la información del login para todas las máquinas en red local
+Summary(fr.UTF-8):	Affiche les informations de login pour toutes les machines du réseau local
+Summary(pl.UTF-8):	Pokazuje kto jest zalogowany na maszynach w sieci lokalnej
+Summary(pt_BR.UTF-8):	Mostra a informação do login para todas as máquinas na rede local
+Summary(tr.UTF-8):	Ağ üzerindeki makinalardaki kullanıcıları sorgular
 Name:		rwho
 Version:	0.17
 Release:	16
