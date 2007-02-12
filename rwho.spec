@@ -1,10 +1,10 @@
 Summary:	Displays who is logged in to local network machines
-Summary(de):	Anzeige von Login-Infos für alle Computer im LAN
-Summary(es):	Enseña la información del login para todas las máquinas en red local
-Summary(fr):	Affiche les informations de login pour toutes les machines du réseau local
-Summary(pl):	Pokazuje kto jest zalogowany na maszynach w sieci lokalnej
-Summary(pt_BR):	Mostra a informação do login para todas as máquinas na rede local
-Summary(tr):	Að üzerindeki makinalardaki kullanýcýlarý sorgular
+Summary(de.UTF-8):   Anzeige von Login-Infos fÃ¼r alle Computer im LAN
+Summary(es.UTF-8):   EnseÃ±a la informaciÃ³n del login para todas las mÃ¡quinas en red local
+Summary(fr.UTF-8):   Affiche les informations de login pour toutes les machines du rÃ©seau local
+Summary(pl.UTF-8):   Pokazuje kto jest zalogowany na maszynach w sieci lokalnej
+Summary(pt_BR.UTF-8):   Mostra a informaÃ§Ã£o do login para todas as mÃ¡quinas na rede local
+Summary(tr.UTF-8):   AÄŸ Ã¼zerindeki makinalardaki kullanÄ±cÄ±larÄ± sorgular
 Name:		rwho
 Version:	0.17
 Release:	16
@@ -38,35 +38,35 @@ The rwho command displays output similar to the output of the who
 command (it shows who is logged in) for all machines on the local
 network running the rwho daemon.
 
-%description -l de
+%description -l de.UTF-8
 Das rwho-Programm zeigt an, welche Anwender auf den Computern im LAN
-eingeloggt sind, die den rwho-Dämon ausführen. Sowohl der rwho-Client
-als auch der Dämon werden mitgeliefert.
+eingeloggt sind, die den rwho-DÃ¤mon ausfÃ¼hren. Sowohl der rwho-Client
+als auch der DÃ¤mon werden mitgeliefert.
 
-%description -l es
-El programa rwho enseña cual de los usuarios están logados en las
-máquinas de la red local que estén ejecutando el servidor rwho. El
+%description -l es.UTF-8
+El programa rwho enseÃ±a cual de los usuarios estÃ¡n logados en las
+mÃ¡quinas de la red local que estÃ©n ejecutando el servidor rwho. El
 cliente y el servidor se ofrecen en este paquete.
 
-%description -l fr
-Le programme rwho affiche quels utilisateurs sont connectés sur les
-machines du réseau local qui ont lancé le démon rwho. Le client et le
-démon rwho sont fournis dans ce package.
+%description -l fr.UTF-8
+Le programme rwho affiche quels utilisateurs sont connectÃ©s sur les
+machines du rÃ©seau local qui ont lancÃ© le dÃ©mon rwho. Le client et le
+dÃ©mon rwho sont fournis dans ce package.
 
-%description -l pl
-Polecenie rwho pokazuje, w sposób podobny do who, kto jest zalogowany
-w sieci lokalnej na wszystkich maszynach, na których dzia³± demon
+%description -l pl.UTF-8
+Polecenie rwho pokazuje, w sposÃ³b podobny do who, kto jest zalogowany
+w sieci lokalnej na wszystkich maszynach, na ktÃ³rych dziaÅ‚Ä… demon
 rwho.
 
-%description -l pt_BR
-O programa rwho mostra quais usuários estão logados nas máquinas da
+%description -l pt_BR.UTF-8
+O programa rwho mostra quais usuÃ¡rios estÃ£o logados nas mÃ¡quinas da
 rede local que estejam rodando o servidor rwho. O cliente e o servidor
-são fornecidos neste pacote.
+sÃ£o fornecidos neste pacote.
 
-%description -l tr
-rwho hizmetini sunan bir aðdaki tüm makinalarda çalýþan tüm
-kullanýcýlar bu komutla sýralanabilir. Bu paket hem istemci yazýlýmýný
-hem de sunucu yazýlýmýný içermektedir.
+%description -l tr.UTF-8
+rwho hizmetini sunan bir aÄŸdaki tÃ¼m makinalarda Ã§alÄ±ÅŸan tÃ¼m
+kullanÄ±cÄ±lar bu komutla sÄ±ralanabilir. Bu paket hem istemci yazÄ±lÄ±mÄ±nÄ±
+hem de sunucu yazÄ±lÄ±mÄ±nÄ± iÃ§ermektedir.
 
 %prep
 %setup -q -n netkit-%{name}-%{version}
