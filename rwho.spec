@@ -7,7 +7,7 @@ Summary(pt_BR.UTF-8):	Mostra a informação do login para todas as máquinas na 
 Summary(tr.UTF-8):	Ağ üzerindeki makinalardaki kullanıcıları sorgular
 Name:		rwho
 Version:	0.17
-Release:	16
+Release:	17
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
@@ -131,4 +131,4 @@ fi
 
 %{_mandir}/man[18]/*
 
-%dir /var/spool/rwho
+%attr(755,rwhod,rwhod) %dir /var/spool/rwho
