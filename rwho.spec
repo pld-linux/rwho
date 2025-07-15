@@ -70,7 +70,7 @@ hem de sunucu yazılımını içermektedir.
 
 %prep
 %setup -q -n netkit-%{name}-%{version}
-#%patch0 -p1
+#%%patch0 -p1
 %patch -P4 -p1
 %patch -P1 -p1
 %patch -P2 -p1
