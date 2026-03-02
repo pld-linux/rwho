@@ -78,7 +78,7 @@ hem de sunucu yazılımını içermektedir.
 %patch -P5 -p1
 
 %build
-CFLAGS="%{rpmcflags} -w"
+CFLAGS="%{rpmcppflags} %{rpmcflags} -w"
 LDFLAGS="%{rpmldflags}"
 export CFLAGS LDFLAGS
 ./configure \
