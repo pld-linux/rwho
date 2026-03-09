@@ -1,0 +1,33 @@
+--- netkit-rwho-0.17.orig/rwho/Makefile	2000-07-30 09:18:38.000000000 +0200
++++ netkit-rwho-0.17/rwho/Makefile	2026-03-09 12:00:00.000000000 +0100
+@@ -10,7 +10,7 @@
+ rwho.o: ../version.h
+
+ install: rwho
+-	install -s -m$(BINMODE) rwho $(INSTALLROOT)$(BINDIR)
++	install -m$(BINMODE) rwho $(INSTALLROOT)$(BINDIR)
+ 	install -m$(MANMODE) rwho.1 $(INSTALLROOT)$(MANDIR)/man1/
+
+ clean:
+--- netkit-rwho-0.17.orig/ruptime/Makefile	2000-07-30 09:18:38.000000000 +0200
++++ netkit-rwho-0.17/ruptime/Makefile	2026-03-09 12:00:00.000000000 +0100
+@@ -8,7 +8,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+
+ install: ruptime
+-	install -s -m$(BINMODE) ruptime $(INSTALLROOT)$(BINDIR)
++	install -m$(BINMODE) ruptime $(INSTALLROOT)$(BINDIR)
+ 	install -m$(MANMODE) ruptime.1 $(INSTALLROOT)$(MANDIR)/man1/
+
+ clean:
+--- netkit-rwho-0.17.orig/rwhod/Makefile	2000-07-30 09:18:38.000000000 +0200
++++ netkit-rwho-0.17/rwhod/Makefile	2026-03-09 12:00:00.000000000 +0100
+@@ -15,7 +15,7 @@
+ $(OBJS): daemon.h
+
+ install: rwhod
+-	install -s -m$(DAEMONMODE) rwhod $(INSTALLROOT)$(SBINDIR)
++	install -m$(DAEMONMODE) rwhod $(INSTALLROOT)$(SBINDIR)
+ 	install -m$(MANMODE) rwhod.8 $(INSTALLROOT)$(MANDIR)/man8/
+
+ clean:

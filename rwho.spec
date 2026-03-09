@@ -7,7 +7,7 @@ Summary(pt_BR.UTF-8):	Mostra a informação do login para todas as máquinas na 
 Summary(tr.UTF-8):	Ağ üzerindeki makinalardaki kullanıcıları sorgular
 Name:		rwho
 Version:	0.17
-Release:	18
+Release:	19
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch2:		%{name}-fixbcast.patch
 Patch3:		%{name}-fixhostname.patch
 Patch4:		%{name}-debian-0.17-8.diff
 Patch5:		%{name}-flags-fixes.patch
+Patch6:		%{name}-no-strip.patch
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(pre):	/bin/id
 Requires(pre):	/usr/bin/getgid
@@ -76,9 +77,10 @@ hem de sunucu yazılımını içermektedir.
 %patch -P2 -p1
 %patch -P3 -p1
 %patch -P5 -p1
+%patch -P6 -p1
 
 %build
-CFLAGS="%{rpmcppflags} %{rpmcflags} -w"
+CFLAGS="%{rpmcppflags} %{rpmcflags} -w -std=gnu89"
 LDFLAGS="%{rpmldflags}"
 export CFLAGS LDFLAGS
 ./configure \
